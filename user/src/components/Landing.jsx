@@ -18,6 +18,8 @@ export default function Landing() {
        const [loading, setLoading] = useState(true);
        let navigate = useNavigate()
 
+      
+
        let handlesearch=(e)=>{
                 e.preventDefault();
             const lowerCaseSearch = search.toLowerCase();
@@ -65,6 +67,9 @@ export default function Landing() {
 
         let handlebtn=()=>{
             toast.error("login to view items")
+        }
+        let HandlePost=()=>{
+          toast.error("login to post items")
         }
     
 
@@ -157,7 +162,7 @@ export default function Landing() {
             </Card.Title>
 
             <Link to={`/view/${item._id}`}>
-              <button className="cardbtn">View</button>
+              <button onClick={handlebtn} className="cardbtn">View</button>
             </Link>
           </Card.Body>
         </Card>
@@ -213,7 +218,7 @@ export default function Landing() {
                     </div>
 
                     <div className="postbtn ">
-                        <button onClick={handlebtn}>Post an item</button></div>
+                        <button onClick={HandlePost}>Post an item</button></div>
                 </div>
 
 
