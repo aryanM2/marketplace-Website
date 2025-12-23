@@ -161,9 +161,9 @@ export default function Landing() {
               {item.itemName}
             </Card.Title>
 
-            <Link to={`/view/${item._id}`}>
+            
               <button onClick={handlebtn} className="cardbtn">View</button>
-            </Link>
+           
           </Card.Body>
         </Card>
       );
