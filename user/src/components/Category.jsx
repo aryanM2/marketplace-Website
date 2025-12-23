@@ -1,8 +1,9 @@
 import React from 'react'
-import { Card} from 'react-bootstrap'
-import {toast,ToastContainer}  from "react-toastify"
+import { Card } from 'react-bootstrap'
+import { ToastContainer } from "react-toastify";
+import { getImageUrl } from "../utils/getImageUrl";
 import "./category.css"
-import Navbar from './Navbar'
+import Navbar from './Navbar' 
 import Footer from './Footer'
 
 import { Link, useParams } from 'react-router-dom'
@@ -41,7 +42,7 @@ export default function Category() {
                 data.length > 0 ? data.map((value) => (
                         <Card key={value._id} className="cardCon card">
                         {value.images && value.images.length > 0 ? (
-                        <Card.Img className="cardImage" variant="top" src={value.images[0]} alt={value.itemName} />
+                        <Card.Img className="cardImage" variant="top" src={getImageUrl(value.images?.[0])} alt={value.itemName} />
                         ) : (
                         <Card.Img className="cardImage" variant="top" src="https://via.placeholder.com/300x180?text=No+Image" alt="No Image" />
                         )}

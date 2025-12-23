@@ -7,6 +7,7 @@ import axios from "axios";
 import ContactSeller from "./contact";
 import Footer from "./Footer";
 import { getImageUrl } from "../utils/getImageUrl";
+import { toast } from "react-toastify";
 
 
 const ViewItem = () => {
@@ -54,6 +55,17 @@ const ViewItem = () => {
       </div>
     );
 
+    // Check authentication from localStorage and provide a handler
+    const token = localStorage.getItem('jwtToken') || localStorage.getItem('token');
+
+    const handleContactClick = () => {
+      if (token) {
+        setShowModal(true);
+      } else {
+        toast.error("Login to contact the seller");
+      }
+    }
+
   return (
     <div className="box">
       <Navbar />
@@ -87,7 +99,7 @@ const ViewItem = () => {
                 </p>
                 <p><strong>Description: </strong>     { item.description}</p>
                 <div className="contactbtn">
-                  <button onClick={() => setShowModal(true)}>Message Seller</button>
+                  <button onClick={handleContactClick}>Message Seller</button>
                 </div>
               </Card.Body>
             </Col>
