@@ -66,8 +66,7 @@ const ViewItem = () => {
             <Col md={6}>
                   {item.images && item.images.length > 0 ? (
                     <Card.Img
-                       src={getImageUrl(item.images?.[0]?.path) || "https://via.placeholder.com/300x180?text=No+Image"}
-                      alt={item.itemName || "Item image"}
+                      src={getImageUrl(item.images?.[0])}
                       className="viewdImg rounded"
                     />
                   ) : (

@@ -83,12 +83,7 @@ export default function Items() {
           <Card.Img
             className="cardImage"
             variant="top"
-             src={
-    item.images?.[0]?.path
-      ? item.images[0].path
-      : "https://via.placeholder.com/300x180?text=No+Image"
-  }
-            alt={item.itemName || "Item image"}
+            src={getImageUrl(item.images?.[0])}
           />
           <Card.Body>
             <Card.Title
